@@ -1,5 +1,9 @@
 package com.lwjfork.base.helper.fragment;
 
+import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
+import android.view.View;
+
 import com.lwjfork.base.helper.base.IResourceHelper;
 import com.lwjfork.base.helper.base.IViewHelper;
 
@@ -11,9 +15,14 @@ import com.lwjfork.base.helper.base.IViewHelper;
  * ====================
  */
 
-public interface IFragmentViewHelper extends IViewHelper,IResourceHelper {
+public interface IFragmentViewHelper extends IResourceHelper {
 
 
+    @SuppressWarnings("unchecked")
+    default <T extends View> T findViewByID(View parent, @IdRes int id) {
+        return IViewHelper.findViewById(parent, id);
+    }
 
-
+    @LayoutRes
+    int getRootLayoutId();
 }

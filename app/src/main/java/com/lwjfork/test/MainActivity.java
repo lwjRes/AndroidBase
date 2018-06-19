@@ -1,28 +1,29 @@
 package com.lwjfork.test;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.lwjfork.base.helper.activity.IActivityViewHelper;
+import com.lwjfork.base.activity.BaseAppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements IActivityViewHelper {
+public class MainActivity extends BaseAppCompatActivity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public void initView() {
         TextView tv_test = findViewByID(R.id.tv_test);
         tv_test.setOnClickListener((view) -> {
-            tv_test.setText("tv_test");
+            Bundle bundle = new Bundle();
+            bundle.putString("text", "text1222");
+            bundle.putInt("test1", 40);
+            startActivity(BundleActivity.class, bundle);
+            tv_test.setText(getStringById(R.string.test));
         });
+        tv_test.setBackgroundColor(getColorById(R.color.colorAccent));
     }
 
     @Override
-    public Activity getContextHelper() {
-        return this;
+    public int getRootLayoutId() {
+        return R.layout.activity_main;
     }
-
-
 }
+

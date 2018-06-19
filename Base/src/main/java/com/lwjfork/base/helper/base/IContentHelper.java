@@ -1,7 +1,5 @@
 package com.lwjfork.base.helper.base;
 
-import android.support.annotation.LayoutRes;
-
 /**
  * Created:2018/6/12
  * User：liuwenjie
@@ -11,6 +9,7 @@ import android.support.annotation.LayoutRes;
  */
 
 public interface IContentHelper {
-    @LayoutRes
-    int getRootLayoutId();
+
+
+
 }

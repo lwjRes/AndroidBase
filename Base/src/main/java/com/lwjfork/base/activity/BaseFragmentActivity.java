@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
 import com.lwjfork.base.helper.activity.IActivityHelper;
-import com.lwjfork.base.helper.activity.IActivityViewHelper;
 
 /**
  * Created:2018/6/12
@@ -16,7 +15,7 @@ import com.lwjfork.base.helper.activity.IActivityViewHelper;
  * ====================
  */
 
-public abstract class BaseFragmentActivity extends FragmentActivity implements IActivityViewHelper, IActivityHelper {
+public abstract class BaseFragmentActivity extends FragmentActivity implements IActivityHelper {
 
     @Override
     public Activity getContextHelper() {
@@ -27,5 +26,17 @@ public abstract class BaseFragmentActivity extends FragmentActivity implements I
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getRootLayoutId());
+        initIntent();
+        initView();
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initBundle(Bundle bundle) {
+
     }
 }

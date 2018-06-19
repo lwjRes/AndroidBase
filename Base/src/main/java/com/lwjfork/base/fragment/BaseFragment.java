@@ -34,12 +34,5 @@ public abstract class BaseFragment extends Fragment implements IFragmentViewHelp
         return LayoutInflater.from(getContext()).inflate(layoutId, null);
     }
 
-    @Override
-    public <T extends View> T findViewByID(int id) {
-        View view = getView();
-        if (view == null) {
-            return null;
-        }
-        return findViewByID(view, id);
-    }
+
 }

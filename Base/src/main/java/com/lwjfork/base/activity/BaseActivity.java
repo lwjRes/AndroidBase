@@ -1,6 +1,7 @@
 package com.lwjfork.base.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -15,7 +16,7 @@ import com.lwjfork.base.helper.activity.IActivityViewHelper;
  * ====================
  */
 
-public abstract class BaseActivity extends Activity implements IActivityViewHelper,IActivityHelper {
+public abstract class BaseActivity extends Activity implements  IActivityHelper {
 
     @Override
     public Activity getContextHelper() {
@@ -26,5 +27,18 @@ public abstract class BaseActivity extends Activity implements IActivityViewHelp
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getRootLayoutId());
+        initIntent();
+        initView();
     }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initBundle(Bundle bundle) {
+
+    }
+
 }

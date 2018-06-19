@@ -16,7 +16,7 @@ import com.lwjfork.base.helper.activity.IActivityViewHelper;
  * ====================
  */
 
-public abstract class BaseAppCompatActivity extends AppCompatActivity implements IActivityViewHelper,IActivityHelper {
+public abstract class BaseAppCompatActivity extends AppCompatActivity implements IActivityHelper {
 
     @Override
     public Activity getContextHelper() {
@@ -27,5 +27,17 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity implements
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getRootLayoutId());
+        initIntent();
+        initView();
+    }
+
+    @Override
+    public void initView() {
+
+    }
+
+    @Override
+    public void initBundle(Bundle bundle) {
+
     }
 }
